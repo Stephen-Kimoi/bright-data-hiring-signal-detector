@@ -2,18 +2,66 @@ const watchlistEl = document.getElementById("watchlist");
 const resultsSection = document.getElementById("results-section");
 const resultsEl = document.getElementById("results");
 const analyzeAllBtn = document.getElementById("analyze-all");
+const addForm = document.getElementById("add-company-form");
+const inputCompany = document.getElementById("input-company");
+const inputLocation = document.getElementById("input-location");
 
 let watchlist = [];
+
+function renderWatchlist() {
+  watchlistEl.innerHTML = watchlist
+    .map(
+      (c) => `
+      <div class="company-chip">
+        <span class="dot"></span>${c.company}
+        <span class="remove" data-company="${c.company}" title="Remove">✕</span>
+      </div>`
+    )
+    .join("");
+
+  watchlistEl.querySelectorAll(".remove").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const name = btn.dataset.company;
+      watchlist = watchlist.filter((e) => e.company !== name);
+      renderWatchlist();
+    });
+  });
+}
 
 async function loadWatchlist() {
   const res = await fetch("/watchlist");
   watchlist = await res.json();
-  watchlistEl.innerHTML = watchlist
-    .map(
-      (c) => `<div class="company-chip"><span class="dot"></span>${c.company}</div>`
-    )
-    .join("");
+  renderWatchlist();
 }
+
+addForm.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const company = inputCompany.value.trim();
+  const location = inputLocation.value.trim() || "United States";
+
+  document.getElementById("add-error")?.remove();
+
+  const res = await fetch("/watchlist", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ company, location }),
+  });
+
+  if (!res.ok) {
+    const err = await res.json();
+    const msg = document.createElement("p");
+    msg.id = "add-error";
+    msg.className = "add-error";
+    msg.textContent = err.detail;
+    addForm.after(msg);
+    return;
+  }
+
+  watchlist = await res.json();
+  renderWatchlist();
+  inputCompany.value = "";
+  inputLocation.value = "";
+});
 
 function createLoadingCard(company) {
   const card = document.createElement("div");
@@ -93,9 +141,9 @@ async function analyzeCompany(entry) {
     const data = await res.json();
     card.className = "brief-card";
     card.innerHTML = renderBrief(entry.company, data.job_count, data.brief);
-  } catch (e) {
+  } catch (err) {
     card.className = "brief-card error";
-    card.textContent = `${entry.company}: ${e.message}`;
+    card.textContent = `${entry.company}: ${err.message}`;
   }
 }
 

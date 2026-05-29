@@ -42,7 +42,7 @@ def poll_snapshot(snapshot_id: str, max_wait: int = 120) -> list[dict[str, Any]]
     raise TimeoutError(f"Snapshot {snapshot_id} not ready after {max_wait}s")
 
 
-def fetch_jobs_for_company(linkedin_url: str) -> list[dict[str, Any]]:
+def fetch_jobs_for_company(jobs_url: str) -> list[dict[str, Any]]:
     """Full flow: trigger scrape, poll, return job records."""
-    snapshot_id = trigger_jobs_scrape(linkedin_url)
+    snapshot_id = trigger_jobs_scrape(jobs_url)
     return poll_snapshot(snapshot_id)

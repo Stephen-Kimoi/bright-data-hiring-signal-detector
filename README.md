@@ -4,6 +4,8 @@ Reads LinkedIn job postings as alternative financial intelligence. Give it a wat
 
 Built with [Bright Data's Web Scraper API](https://brightdata.com/products/web-scraper) and [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs).
 
+📖 **Full tutorial:** [Build a Growth Signal Detector with Bright Data and Gemini](https://lablab.ai/ai-tutorials/bright-data-hiring-signal-detector)
+
 ![Company Growth Signal Detector UI](https://imagedelivery.net/K11gkZF3xaVyYzFESMdWIQ/hiring-signal-ui-results-top/public)
 
 ---

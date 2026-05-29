@@ -1,14 +1,14 @@
 [
   {
     "company": "Stripe",
-    "jobs_url": "https://www.linkedin.com/jobs/search/?keywords=stripe&f_TPR=r2592000"
+    "location": "United States"
   },
   {
     "company": "Notion",
-    "jobs_url": "https://www.linkedin.com/jobs/search/?keywords=notion&f_TPR=r2592000"
+    "location": "United States"
   },
   {
     "company": "Vercel",
-    "jobs_url": "https://www.linkedin.com/jobs/search/?keywords=vercel&f_TPR=r2592000"
+    "location": "United States"
   }
 ]

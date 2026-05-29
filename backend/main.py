@@ -35,6 +35,23 @@ def get_watchlist():
         return json.load(f)
 
 
+class WatchlistEntry(BaseModel):
+    company: str
+    location: str = "United States"
+
+
+@app.post("/watchlist")
+def add_to_watchlist(entry: WatchlistEntry):
+    with open(WATCHLIST_PATH) as f:
+        watchlist = json.load(f)
+    if any(e["company"].lower() == entry.company.lower() for e in watchlist):
+        raise HTTPException(status_code=409, detail=f"{entry.company} is already in the watchlist")
+    watchlist.append({"company": entry.company, "location": entry.location})
+    with open(WATCHLIST_PATH, "w") as f:
+        json.dump(watchlist, f, indent=2)
+    return watchlist
+
+
 class AnalyzeRequest(BaseModel):
     company: str
     location: str = "United States"

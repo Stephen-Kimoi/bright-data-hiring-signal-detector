@@ -92,4 +92,4 @@ You can also add companies directly from the UI without restarting the server.
 
 ## Tutorial
 
-Full step-by-step tutorial on [Lablab.ai](https://lablab.ai/t/bright-data-hiring-signal-detector).
+Full step-by-step tutorial on Lablab.ai: [Build a Growth Signal Detector with Bright Data and Gemini](https://lablab.ai/ai-tutorials/bright-data-hiring-signal-detector).

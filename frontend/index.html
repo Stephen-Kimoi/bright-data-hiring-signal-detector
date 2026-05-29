@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Company Growth Signal Detector</title>
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <div class="app">
+    <header>
+      <h1>Company Growth Signal Detector</h1>
+      <p class="subtitle">Reads hiring patterns as alternative intelligence data</p>
+    </header>
+
+    <main>
+      <section class="watchlist-section">
+        <h2>Watchlist</h2>
+        <div id="watchlist" class="watchlist-grid"></div>
+        <button id="analyze-all" class="btn-primary">Analyze All Companies</button>
+      </section>
+
+      <section class="results-section" id="results-section" style="display:none">
+        <h2>Intelligence Briefs</h2>
+        <div id="results" class="results-grid"></div>
+      </section>
+    </main>
+  </div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

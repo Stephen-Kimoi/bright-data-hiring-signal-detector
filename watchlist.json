@@ -1,14 +1,14 @@
 [
   {
     "company": "Stripe",
-    "linkedin_url": "https://www.linkedin.com/company/stripe"
+    "jobs_url": "https://www.linkedin.com/jobs/search/?keywords=stripe&f_TPR=r2592000"
   },
   {
     "company": "Notion",
-    "linkedin_url": "https://www.linkedin.com/company/notion"
+    "jobs_url": "https://www.linkedin.com/jobs/search/?keywords=notion&f_TPR=r2592000"
   },
   {
     "company": "Vercel",
-    "linkedin_url": "https://www.linkedin.com/company/vercel"
+    "jobs_url": "https://www.linkedin.com/jobs/search/?keywords=vercel&f_TPR=r2592000"
   }
 ]

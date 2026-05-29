@@ -4,7 +4,7 @@ from google import genai
 from google.genai import types
 
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
-MODEL = "gemini-2.5-pro"
+MODEL = "gemini-2.5-flash"
 
 SYSTEM_PROMPT = """You are an expert analyst who reads company job posting data as alternative financial intelligence.
 Given a list of recent job postings for a company, produce a structured growth signal brief.

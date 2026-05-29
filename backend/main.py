@@ -37,13 +37,13 @@ def get_watchlist():
 
 class AnalyzeRequest(BaseModel):
     company: str
-    jobs_url: str
+    location: str = "United States"
 
 
 @app.post("/analyze")
 def analyze(req: AnalyzeRequest):
     try:
-        jobs = fetch_jobs_for_company(req.jobs_url)
+        jobs = fetch_jobs_for_company(req.company, req.location)
     except Exception as e:
         raise HTTPException(status_code=502, detail=f"Bright Data error: {e}")
 

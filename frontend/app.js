@@ -148,6 +148,13 @@ async function analyzeCompany(entry) {
 }
 
 analyzeAllBtn.addEventListener("click", async () => {
+  // Auto-add any company typed but not yet submitted
+  if (inputCompany.value.trim()) {
+    await addForm.requestSubmit();
+    // Small delay to let the DOM update
+    await new Promise((r) => setTimeout(r, 50));
+  }
+
   analyzeAllBtn.disabled = true;
   resultsEl.innerHTML = "";
   resultsSection.style.display = "block";

@@ -80,7 +80,7 @@ async function analyzeCompany(entry) {
     const res = await fetch("/analyze", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ company: entry.company, jobs_url: entry.jobs_url }),
+      body: JSON.stringify({ company: entry.company, location: entry.location || "United States" }),
     });
 
     if (!res.ok) {
